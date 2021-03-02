@@ -136,19 +136,52 @@ fun PuppyDetailsCard( image: Int,
                       gender: String?,
                       details: String?,
                       ) {
-    Card(elevation = 4.dp,shape = RoundedCornerShape(6),modifier = Modifier.padding(16.dp).fillMaxHeight()) {
-        Row(verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .padding(4.dp)
-
-
+    Column {
+        Text(
+            text = "Puppy Details : "+breed.toString(), modifier = Modifier.padding(16.dp),
+            style = TextStyle(fontWeight = FontWeight.ExtraBold, fontSize = 24.sp)
+        )
+        Card(
+            elevation = 4.dp,
+            shape = RoundedCornerShape(6),
+            modifier = Modifier.padding(16.dp),
         ) {
-            Image(modifier = Modifier.height(200.dp).width(200.dp).padding(4.dp),painter = painterResource(id = image), contentDescription = breed, contentScale = ContentScale.Crop)
-            Column(horizontalAlignment = Alignment.Start,verticalArrangement = Arrangement.Center,modifier = Modifier.padding(4.dp).fillMaxWidth()) {
-                Text(style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 18.sp),text = breed.toString())
-                Text( style = TextStyle(fontWeight = FontWeight.SemiBold, fontSize = 14.sp),text = age.toString())
-                Text( style = TextStyle(fontWeight = FontWeight.SemiBold, fontSize = 14.sp),text = gender.toString())
-                Text( style = TextStyle(fontWeight = FontWeight.SemiBold, fontSize = 14.sp),text = details.toString())
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center,
+                modifier = Modifier
+                    .padding(4.dp)
+
+
+            ) {
+                Image(
+                    modifier = Modifier.height(250.dp).width(250.dp).padding(4.dp),
+                    painter = painterResource(id = image),
+                    contentDescription = breed,
+                    contentScale = ContentScale.Crop
+                )
+                Column(
+                    horizontalAlignment = Alignment.Start,
+                    verticalArrangement = Arrangement.Center,
+                    modifier = Modifier.padding(16.dp).fillMaxWidth()
+                ) {
+                    Text(
+                        style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 18.sp),
+                        text = "Breed : "+breed.toString()
+                    )
+                    Text(
+                        style = TextStyle(fontWeight = FontWeight.SemiBold, fontSize = 16.sp),
+                        text = "Age : "+age.toString()
+                    )
+                    Text(
+                        style = TextStyle(fontWeight = FontWeight.SemiBold, fontSize = 16.sp),
+                        text = "Gender : "+gender.toString()
+                    )
+                    Text(
+                        style = TextStyle(fontWeight = FontWeight.SemiBold, fontSize = 16.sp),
+                        text = details.toString()
+                    )
+                }
             }
         }
     }
